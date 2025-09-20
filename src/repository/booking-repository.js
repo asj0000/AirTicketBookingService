@@ -53,14 +53,14 @@ class BookingRepository{
 
     async update( bookingId , data ){
       try{
-        const bookingObj = await Booking.findByPk( bookingId);
-        // if(  data.status ){
-        //     bookingObj.status = data.status;
-        // }
-        Object.keys(data).forEach(key => {
-        if (data[key] !== undefined) {
-            bookingObj[key] = data[key];
-        }
+            const bookingObj = await Booking.findByPk( bookingId);
+            // if(  data.status ){
+            //     bookingObj.status = data.status;
+            // }
+            Object.keys(data).forEach(key => {
+            if (data[key] !== undefined) {
+                bookingObj[key] = data[key];
+            }
         });
 
         await bookingObj.save()
